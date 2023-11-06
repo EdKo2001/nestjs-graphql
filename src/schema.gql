@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Coffee model"""
+type Coffee {
+  """A unique indentifier"""
+  id: ID!
+  name: String!
+  brand: String!
+  flavors: [String!]!
+}
+
+type Query {
+  coffees: [Coffee!]!
+  coffee(id: ID!): Coffee!
+}
+
+type Mutation {
+  createCoffeee(createCoffeeInput: CreateCoffeeInput!): Coffee!
+}
+
+"""Create coffee input onject type."""
+input CreateCoffeeInput {
+  """A new coffee name"""
+  name: String!
+  brang: String!
+  flavors: [String!]!
+}
