@@ -3,6 +3,7 @@ import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Coffee } from './entities/coffee.entity/coffee.entity';
 import { CreateCoffeeInput } from './dto/create-coffee.input';
+import { UpdateCoffeeInput } from './dto/update-coffee.input';
 import { CoffeesService } from './coffees.service';
 
 @Resolver()
@@ -24,5 +25,18 @@ export class CoffeesResolver {
     @Args('createCoffeeInput') createCoffeeInput: CreateCoffeeInput,
   ) {
     return this.coffesService.create(createCoffeeInput);
+  }
+
+  @Mutation(() => Coffee, { name: 'updateCoffeee' })
+  async update(
+    @Args('id', ParseIntPipe) id: number,
+    @Args('updateCoffeeInput') updateCoffeeInput: UpdateCoffeeInput,
+  ) {
+    return this.coffesService.update(id, updateCoffeeInput);
+  }
+
+  @Mutation(() => Coffee, { name: 'removeCoffeee' })
+  async remove(@Args('id', ParseIntPipe) id: number) {
+    return this.coffesService.remove(id);
   }
 }
