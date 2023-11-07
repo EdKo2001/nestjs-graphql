@@ -4,6 +4,6 @@ import { InputType, Field } from '@nestjs/graphql';
 export class CreateCoffeeInput {
   @Field(() => String, { description: 'A new coffee name' })
   name: string;
-  brang: string;
+  brand: string;
   flavors: string[];
 }

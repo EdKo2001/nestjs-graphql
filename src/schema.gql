@@ -24,6 +24,6 @@ type Mutation {
 input CreateCoffeeInput {
   """A new coffee name"""
   name: String!
-  brang: String!
+  brand: String!
   flavors: [String!]!
 }
