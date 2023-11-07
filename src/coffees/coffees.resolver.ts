@@ -7,16 +7,16 @@ import { CoffeesService } from './coffees.service';
 
 @Resolver()
 export class CoffeesResolver {
-  constructor(private readonly coffesService: CoffeesService)
-  
+  constructor(private readonly coffesService: CoffeesService) {}
+
   @Query(() => [Coffee], { name: 'coffees' })
   async findAll() {
-    return this.coffesService.findAll()
+    return this.coffesService.findAll();
   }
 
   @Query(() => Coffee, { name: 'coffee' })
   async findOne(@Args('id', { type: () => ID }, ParseIntPipe) id: number) {
-    return this.coffesService.findOne(id)
+    return this.coffesService.findOne(id);
   }
 
   @Mutation(() => Coffee, { name: 'createCoffeee' })
